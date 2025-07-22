@@ -267,6 +267,13 @@
 					<ValidRange minInclusive="1" maxInclusive="3" />
 				</ValidRangeSet>
 			</IntegerArgumentType>
+			<IntegerArgumentType name="Solar_Panel_Id" signed="false">
+				<UnitSet />
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="16" />
+				<ValidRangeSet>
+					<ValidRange minInclusive="1" maxInclusive="2" />
+				</ValidRangeSet>
+			</IntegerArgumentType>
 		</ArgumentTypeSet>
 		<MetaCommandSet>
 			<MetaCommand name="CCSDSPacket" abstract="true">
@@ -322,6 +329,22 @@
 					<BaseContainer containerRef="MyProjectPacket" />
 				</CommandContainer>
 				<DefaultSignificance consequenceLevel="vital" />
+			</MetaCommand>
+			<MetaCommand name="DeploySolarPanel" shortDescription="Deploys a solar panel">
+				<BaseMetaCommand metaCommandRef="MyProjectPacket">
+					<ArgumentAssignmentList>
+						<ArgumentAssignment argumentName="Packet_ID" argumentValue="4" />
+					</ArgumentAssignmentList>
+				</BaseMetaCommand>
+				<ArgumentList>
+					<Argument argumentTypeRef="Solar_Panel_Id" name="Solar_Panel_Id" shortDescription="ID of the solar panel" />
+				</ArgumentList>
+				<CommandContainer name="DeploySolarPanel">
+					<EntryList>
+						<ArgumentRefEntry argumentRef="Solar_Panel_Id" />
+					</EntryList>
+					<BaseContainer containerRef="MyProjectPacket" />
+				</CommandContainer>
 			</MetaCommand>
 			<MetaCommand name="SwitchVoltageOn" shortDescription="Switches a battery on">
 				<BaseMetaCommand metaCommandRef="MyProjectPacket">
