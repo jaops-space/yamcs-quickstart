@@ -46,10 +46,15 @@ This script will send packets at 1 Hz over UDP to Yamcs. There is enough test da
 
 The packets are a bit artificial and include a mixture of HK and accessory data.
 
+## Other useful generation of simulated data
+
+Generate test images in a Yamcs bucket (image number and image url are available as Yamcs parameters):
+
+    python ./simulator/generate_images.py 
 
 ## Telecommanding
 
-This project defines a few example CCSDS telecommands. They are sent to UDP port 10025. The simulator.py script listens to this port. Commands  have no side effects. The script will only count them.
+This project defines a few example CCSDS telecommands. They are sent to UDP port 10025. The simulator.py script listens to this port. Commands have no side effects. The script will only count them.
 
 
 ## Bundling
