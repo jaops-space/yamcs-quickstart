@@ -50,7 +50,7 @@ The packets are a bit artificial and include a mixture of HK and accessory data.
 
 Generate test images in a Yamcs bucket (image number and image url are available as Yamcs parameters):
 
-    python ./simulator/generate_images.py 
+    python simulator/images/generate_images.py 
 
 ## Telecommanding
 
