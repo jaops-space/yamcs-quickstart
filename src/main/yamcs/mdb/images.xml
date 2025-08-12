@@ -8,7 +8,10 @@
 			<StringParameterType name="string" />
 		</ParameterTypeSet>
 		<ParameterSet>
-			<Parameter name="url" parameterTypeRef="string">
+			<Parameter name="url_storage" parameterTypeRef="string">
+				<ParameterProperties dataSource="local" />
+			</Parameter>
+			<Parameter name="url_full" parameterTypeRef="string">
 				<ParameterProperties dataSource="local" />
 			</Parameter>
 			<Parameter name="number" parameterTypeRef="uint32">

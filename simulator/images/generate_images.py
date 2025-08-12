@@ -29,13 +29,16 @@ while True:
     d.text((x, y), text, font=font, fill='black')
 
     # Save image with 4 leading zero padding
-    img_path = f"{imgdir}/image_{n:04d}.png" 
+    image_name = f"image_{n:04d}.png"
+    img_path = f"{imgdir}/{image_name}" 
     img.save(img_path)
     print(f"Saved {img_path}")
-    url = f"http://localhost:8090/api/storage/buckets/images/objects/image_{n}.png"
+    url_storage = f"/storage/buckets/images/objects/{image_name}"
+    url_full = f"http://localhost:8090/api{url_storage}"
     processor.set_parameter_values({
         "/images/number": n,
-        "/images/url": url
+        "/images/url_storage": url_storage,
+        "/images/url_full": url_full,
     })
 
     n += 1
