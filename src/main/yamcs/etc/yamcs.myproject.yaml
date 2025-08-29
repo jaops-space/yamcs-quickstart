@@ -41,6 +41,9 @@ mdb:
   - type: xtce
     args:
       file: mdb/xtce.xml
+  - type: xtce
+    args:
+      file: mdb/images.xml
 
 # Configuration for streams created at server startup
 streamConfig:

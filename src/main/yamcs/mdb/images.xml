@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="images" xmlns="http://www.omg.org/spec/XTCE/20180204"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+	<TelemetryMetaData>
+		<ParameterTypeSet>
+			<IntegerParameterType name="uint32" signed="false" />
+			<StringParameterType name="string" />
+		</ParameterTypeSet>
+		<ParameterSet>
+			<Parameter name="url_storage" parameterTypeRef="string">
+				<ParameterProperties dataSource="local" />
+			</Parameter>
+			<Parameter name="url_full" parameterTypeRef="string">
+				<ParameterProperties dataSource="local" />
+			</Parameter>
+			<Parameter name="number" parameterTypeRef="uint32">
+				<ParameterProperties dataSource="local" />
+			</Parameter>
+		</ParameterSet>
+	</TelemetryMetaData>
+</SpaceSystem>
