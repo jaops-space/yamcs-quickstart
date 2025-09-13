@@ -1,0 +1,8 @@
+# To enable authentication in Yamcs, set this to true
+# and make sure to set a proper credentials and roles in users.yaml and roles.yaml
+# also select the appropriate allowCredentials setting in yamcs.yaml
+# see documentation : https://docs.yamcs.org/yamcs-server-manual/security/
+enabled: false
+# enabled: true
+authModules:
+  - class: org.yamcs.security.YamlAuthModule

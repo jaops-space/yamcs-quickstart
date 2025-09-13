@@ -5,7 +5,8 @@ services:
       address: "0.0.0.0"
       cors:
         allowOrigin: "*"
-        allowCredentials: false
+        allowCredentials: false  # disabled if not using authentication
+        # allowCredentials: true  # Required for authentication
 
 # This is where Yamcs will persist its data. Paths are resolved relative to where Yamcs is running
 # from (by default: target/yamcs). This means that `mvn clean` will remove also persisted data.
