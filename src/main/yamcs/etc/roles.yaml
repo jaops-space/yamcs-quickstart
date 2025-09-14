@@ -1,6 +1,7 @@
+# see documentation : https://docs.yamcs.org/yamcs-server-manual/security/
 Operator:
   ReadParameter: [".*"]
-  WriteParameter: []
+  WriteParameter: [".*"]
   ReadPacket: [".*"]
   Command: [".*"]
   CommandHistory: [".*"]
@@ -11,3 +12,26 @@ Operator:
     - GetMissionDatabase
     - ControlAlarms
     - ControlArchiving
+    # giving all system access:
+    - CreateInstances
+    - ControlCommandClearances
+    - CommandOptions
+    - ChangeMissionDatabase
+    - ReadAlarms
+    - ReadActivities
+    - ControlArchiving
+    - ReadLinks
+    - ControlLinks
+    - ControlServices
+    - ManageParameterLists
+    - ManageAnyBucket
+    - ReadEvents
+    - WriteEvents
+    - WriteTables
+    - ReadTables
+    - ReadTimeline
+    - ControlTimeline
+    - ControlAccess
+    - ReadSystemInfo
+    - ControlFileTransfers
+    - ReadFileTransfers
