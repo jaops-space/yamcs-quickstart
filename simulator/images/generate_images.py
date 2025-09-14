@@ -1,17 +1,39 @@
 
 import time
+import argparse
 from PIL import Image, ImageDraw, ImageFont
 import os
-from yamcs.client import YamcsClient
+from yamcs.client import YamcsClient, Credentials
 
-
-client = YamcsClient("localhost:8090")
-processor = client.get_processor(instance="myproject", processor="realtime")
-
-imgdir="/tmp/images"
-os.makedirs(imgdir, exist_ok=True)
+# Configuration constants
+YAMCS_HOST = "localhost:8090"
+YAMCS_INSTANCE = "myproject"
+YAMCS_PROCESSOR = "realtime"
+IMG_DIR = "/tmp/images"
 WIDTH = 640
 HEIGHT = 480
+SLEEP_INTERVAL = 5
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-u", "--username", default="operator")
+parser.add_argument("-p", "--password", default="tobechanged")
+args = parser.parse_args()
+
+# Try without credentials first, then with credentials if needed
+try:
+    client = YamcsClient(YAMCS_HOST)
+    processor = client.get_processor(instance=YAMCS_INSTANCE, processor=YAMCS_PROCESSOR)
+    _ = processor.name  # Test if authentication is actually working by accessing processor info
+    print("Connected without authentication")
+except Exception as e:
+    print(f"When connecting to Yamcs without authentication and trying to access processor name, got error: {e}")
+    print(f"Now trying using credentials")
+    credentials = Credentials(username=args.username, password=args.password)
+    client = YamcsClient(YAMCS_HOST, credentials=credentials)
+    processor = client.get_processor(instance=YAMCS_INSTANCE, processor=YAMCS_PROCESSOR)
+    print(f"Connected with username {args.username}")
+
+os.makedirs(IMG_DIR, exist_ok=True)
 
 font = ImageFont.load_default(HEIGHT//10) # Use default font with size based on height
 
@@ -30,11 +52,11 @@ while True:
 
     # Save image with 4 leading zero padding
     image_name = f"image_{n:04d}.png"
-    img_path = f"{imgdir}/{image_name}" 
+    img_path = f"{IMG_DIR}/{image_name}" 
     img.save(img_path)
     print(f"Saved {img_path}")
     url_storage = f"/storage/buckets/images/objects/{image_name}"
-    url_full = f"http://localhost:8090/api{url_storage}"
+    url_full = f"http://{YAMCS_HOST}/api{url_storage}"
     processor.set_parameter_values({
         "/images/number": n,
         "/images/url_storage": url_storage,
@@ -42,4 +64,4 @@ while True:
     })
 
     n += 1
-    time.sleep(5)
+    time.sleep(SLEEP_INTERVAL)
