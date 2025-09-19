@@ -1,37 +1,39 @@
-# see documentation : https://docs.yamcs.org/yamcs-server-manual/security/
-Operator:
-  ReadParameter: [".*"]
-  WriteParameter: [".*"]
-  ReadPacket: [".*"]
-  Command: [".*"]
-  CommandHistory: [".*"]
-  System:
-    - ControlProcessor
-    - ModifyCommandHistory
-    - ControlCommandQueue
-    - GetMissionDatabase
-    - ControlAlarms
-    - ControlArchiving
-    # giving all system access:
-    - CreateInstances
-    - ControlCommandClearances
-    - CommandOptions
-    - ChangeMissionDatabase
-    - ReadAlarms
-    - ReadActivities
-    - ControlArchiving
-    - ReadLinks
-    - ControlLinks
-    - ControlServices
-    - ManageParameterLists
-    - ManageAnyBucket
-    - ReadEvents
-    - WriteEvents
-    - WriteTables
-    - ReadTables
-    - ReadTimeline
-    - ControlTimeline
-    - ControlAccess
-    - ReadSystemInfo
-    - ControlFileTransfers
-    - ReadFileTransfers
+# # see documentation : https://docs.yamcs.org/yamcs-server-manual/security/
+# Operator:
+#   ReadParameter: [".*"]
+#   # ReadParameter:
+#   #   - "^(?!/yamcs/MSI/links/udp-in/(?:dataInCount|dataInRate|dataOutCount|dataOutRate|linkStatus|packetRate)$).*"
+#   WriteParameter: [".*"]
+#   ReadPacket: [".*"]
+#   Command: [".*"]
+#   CommandHistory: [".*"]
+#   System:
+#     - ControlProcessor
+#     - ModifyCommandHistory
+#     - ControlCommandQueue
+#     - GetMissionDatabase
+#     - ControlAlarms
+#     - ControlArchiving
+#     # giving all system access:
+#     - CreateInstances
+#     - ControlCommandClearances
+#     - CommandOptions
+#     - ChangeMissionDatabase
+#     - ReadAlarms
+#     - ReadActivities
+#     - ControlArchiving
+#     - ReadLinks
+#     - ControlLinks
+#     - ControlServices
+#     - ManageParameterLists
+#     - ManageAnyBucket
+#     - ReadEvents
+#     - WriteEvents
+#     - WriteTables
+#     - ReadTables
+#     - ReadTimeline
+#     - ControlTimeline
+#     - ControlAccess
+#     - ReadSystemInfo
+#     - ControlFileTransfers
+#     - ReadFileTransfers
