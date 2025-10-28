@@ -25,14 +25,14 @@ dataLinks:
   - name: udp-in
     class: org.yamcs.tctm.UdpTmDataLink
     stream: tm_realtime
-    port: 10015
+    port: 10016
     packetPreprocessorClassName: com.example.myproject.MyPacketPreprocessor
 
   - name: udp-out
     class: org.yamcs.tctm.UdpTcDataLink
     stream: tc_realtime
     host: localhost
-    port: 10025
+    port: 10026
     commandPostprocessorClassName: com.example.myproject.MyCommandPostprocessor
 
 mdb:
@@ -40,7 +40,7 @@ mdb:
   # Valid loaders are: sheet, xtce or fully qualified name of the class
   - type: xtce
     args:
-      file: mdb/xtce.xml
+      file: mdb/xtce2.xml
   - type: xtce
     args:
       file: mdb/images.xml

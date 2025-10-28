@@ -14,7 +14,8 @@ services:
 dataDir: yamcs-data
 
 instances:
-  - myproject
+  - instance1
+  - instance2
 
 # Secret key unique to a particular Yamcs installation.
 # This is used to provide cryptographic signing.
